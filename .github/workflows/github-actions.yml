@@ -3,15 +3,15 @@ name: CI Workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  prevent-push-to-master:
+  prevent-push-to-main:
     runs-on: ubuntu-latest
     steps:
-    - name: Check for Direct Push to Master
+    - name: Check for Direct Push to Main
       run: |
-        echo "Direct pushes to the master branch are not allowed."
+        echo "Direct pushes to the main branch are not allowed."
         exit 1
 
   # Ajoutez ici vos autres jobs de CI/CD si nécessaire
