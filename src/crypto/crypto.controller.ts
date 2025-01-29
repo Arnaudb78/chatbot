@@ -31,4 +31,9 @@ export class CryptoController {
   remove(@Param('id') id: string) {
     return this.cryptoService.remove(+id);
   }
+
+  @Get('api/openai')
+  getOpenAI(): Promise<any> {
+    return this.cryptoService.getOpenIA();
+  }
 }
