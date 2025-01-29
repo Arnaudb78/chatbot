@@ -1,0 +1,29 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  prevent-push-to-master:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check for Direct Push to Master
+      run: |
+        echo "Direct pushes to the master branch are not allowed."
+        exit 1
+
+  # Ajoutez ici vos autres jobs de CI/CD si nécessaire
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Ajoutez vos étapes de build/test ici
+    - name: Run build
+      run: echo "Running build process..."
+
+    - name: Run tests
+      run: echo "Running tests..."
