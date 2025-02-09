@@ -11,8 +11,13 @@ export class CryptoService {
   ) {}
 
   async create(createCryptoDto: CreateCryptoDto): Promise<Crypto> {
-    const createdCrypto = new this.cryptoModel(createCryptoDto);
-    return createdCrypto.save();
+    try {
+      const save = await this.cryptoModel.create(createCryptoDto);
+      return save;
+    } catch (error) {
+      console.error('Erreur lors de la sauvegarde du document :', error.message);
+      throw new Error('Erreur lors de la sauvegarde du document');
+    }
   }
 
   async findAll(): Promise<Crypto[]> {
