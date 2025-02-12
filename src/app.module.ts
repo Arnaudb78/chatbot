@@ -6,6 +6,10 @@ import { CoinmarketcapModule } from './coinmarketcap/coinmarketcap.module';
 
 @Module({
   imports: [CryptoModule, CoinmarketcapModule],
+import { WordsModule } from './words/words.module';
+
+@Module({
+  imports: [CryptoModule, WordsModule],
   controllers: [AppController],
   providers: [AppService],
 })
